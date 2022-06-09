@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="bootstrap-4.4.1-dist/css/2022-05-17-04.css" />
+<link
+href="https://getbootstrap.kr/docs/5.1/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+crossorigin="anonymous"
+/>
+</head>
+<body>
+    <header
+    class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
+  >
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"
+      >Company name</a
+    >
+    <button
+      class="navbar-toggler position-absolute d-md-none collapsed"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu"
+      aria-controls="sidebarMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="dropdown text-end col-1">
+      <a
+        href="#"
+        class="d-block link-dark text-decoration-none dropdown-toggle"
+        id="dropdownUser1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+      <!-- 프로필 사진 -->
+        <img
+          src="https://github.com/mdo.png"
+          alt="mdo"
+          width="32"
+          height="32"
+          class="rounded-circle"
+        />
+      </a>
+      <ul
+        class="dropdown-menu text-small"
+        aria-labelledby="dropdownUser1"
+      >
+        <li><a class="dropdown-item" href="#">New project...</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div>
+  </header>
+
+	<div class="container-fluid">
+    	<div class="row">
+            <nav
+            id="sidebarMenu"
+            class="col-md-3 col-lg-2 d-md-block bg-light sidebar"
+          >
+            <div class="flex-shrink-0 p-3">
+              <a
+                href="../main/main.html"
+                class="d-flex align-items-center link-dark text-decoration-none border-bottom"
+              >
+                <svg class="bi me-2" width="30" height="24">
+                  <use xlink:href="#bootstrap" />
+                </svg>
+                <span class="fs-5 fw-semibold">MAIN</span>
+              </a>
+              <ul class="list-unstyled ps-0">
+                <li class="mb-1">
+                  <button
+                    class="btn btn-toggle align-items-center rounded collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#home-collapse"
+                    aria-expanded="true"
+                  >
+                    게시판
+                  </button>
+                  <div class="collapse show" id="home-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                      <li><a href="../board/noticeboard.html" class="link-dark rounded">공지 게시판</a></li>
+                      <li><a href="../board/freeboard.html" class="link-dark rounded">자유 게시판</a></li>
+  
+                      <!-- 관리자 전용 -->
+                      <li><a href="../board/anonymousbulletinboard.html" class="link-dark rounded">익명 게시판</a></li>
+                      
+                    </ul>
+                  </div>
+                </li>
+                <li class="mb-1">
+                  <button
+                    class="btn btn-toggle align-items-center rounded collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#dashboard-collapse"
+                    aria-expanded="false"
+                  >
+                    업무보고
+                  </button>
+                  <div class="collapse" id="dashboard-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                      <li><a href="#" class="link-dark rounded">일일보고</a></li>
+                      <li><a href="#" class="link-dark rounded">주간보고</a></li>
+                      <li><a href="#" class="link-dark rounded">월간보고</a></li>
+                      <li><a href="#" class="link-dark rounded">년간보고</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mb-1">
+                  <button
+                    class="btn btn-toggle align-items-center rounded collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#orders-collapse"
+                    aria-expanded="false"
+                  >
+                    전자메일
+                  </button>
+                  <div class="collapse" id="orders-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                      <li><a href="#" class="link-dark rounded">전체메일</a></li>
+                      <li><a href="#" class="link-dark rounded">받은메일함</a></li>
+                      <li><a href="#" class="link-dark rounded">보낸메일함</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mb-1">
+                  <button
+                    class="btn btn-toggle align-items-center rounded collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#calendar-collapse"
+                    aria-expanded="false"
+                  >
+                    캘린더
+                  </button>
+                  <div class="collapse" id="calendar-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                      <li><a href="#" class="link-dark rounded">전체 일정</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="mb-1">
+                  <button
+                    class="btn btn-toggle align-items-center rounded collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#payment-collapse"
+                    aria-expanded="false"
+                  >
+                    전자결제
+                  </button>
+                  <div class="collapse" id="payment-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                      <li><a href="#" class="link-dark rounded">휴가 일정</a></li>
+                      <li><a href="#" class="link-dark rounded">연차 일정</a></li>
+                      <li><a href="#" class="link-dark rounded">반차 일정</a></li>
+                      <li><a href="#" class="link-dark rounded">파견 일정</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="border-top my-3"></li>
+                <li class="mb-1">
+                  <button
+                    class="btn btn-toggle align-items-center rounded collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#account-collapse"
+                    aria-expanded="false"
+                  >
+                    관리자
+                  </button>
+                  <div class="collapse" id="account-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                      <li><a href="/admin/join" class="link-dark rounded">사원등록</a></li>
+                      <li><a href="/admin/role" class="link-dark rounded">직원권한관리</a></li>
+                      <li><a href="#" class="link-dark rounded">사원근태관리</a></li>
+                      <li><a href="#" class="link-dark rounded">결제라인</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        	<main class="col-md-10 ms-sm-auto row">
+        	  <form class="col d-block">
+              <div class="row ms-sm-auto">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <h2 class="text-center">게시글 쓰기</h2>
+                    <form action="BoardWriterProc.jsp" method="post" \>
+                      <table class="table table-striped">
+                        
+                        <tr>
+                            <td>제목</td>
+                            <td><input type="text"  class="form-control" name="subject"></td>
+                        </tr>
+                        <tr>
+                          <td>작성자</td>
+                          <td><input type="text"  class="form-control" name="writer"></td>
+                        </tr>
+                                              
+                        <tr>
+                            <td>글내용</td>
+                            <td><textarea rows="10" cols="50" name="content" class="form-control"></textarea></td>
+                        </tr>
+                        <tr>
+                          <td>파일업로드</td>
+                          <td><input type="file" class="form-control" name="file"></td>
+                      </tr>
+                        <tr>
+                             
+                            <td colspan="2"  class="text-center">
+                                <input type="submit" value="글쓰기" class="btn " style="background-color:rgb(210,244,234) ;">
+                                <input type="reset" value="다시작성" class="btn" style="background-color:rgb(210,244,234) ;" > 
+                                
+                            </td>
+                        </tr>
+                         
+                      </table>
+                    </form>
+                    </div>
+                    </div>
+                    </form>
+                    </main>
+                </div>
+            </div>
+</body>
+</html>

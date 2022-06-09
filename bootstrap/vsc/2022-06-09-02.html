@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="assets/styles/index.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <title>Vanilla Coding | Bootcamp Prep</title>
+    
+  <style>
+
+.wj-calendar {
+  max-width: 21em;
+}
+
+.wj-calendar .wj-header {
+  color: white;
+  background: #808080;
+}
+
+.wj-calendar .date-holiday:not(.wj-state-selected) {
+  font-weight: bold;
+  color: #008f22;
+  background: #f0fff0;
+  outline: 2pt solid #008f22;
+}
+
+.wj-calendar .date-weekend:not(.wj-state-selected) {
+  background-color: #d8ffa6;
+}
+  </style>
+</head>
+<body>
+    <input style="margin-left:10px;" id="theCalendar" />
+    <script>
+
+import * as wijmo from '@grapecity/wijmo';
+import * as input from '@grapecity/wijmo.input';
+import { getHolidays } from './data';
+
+function init() {
+    let holidays = getHolidays();
+
+    // the calendar
+    let theCalendar = new input.Calendar('#theCalendar', {
+        formatItem: (sender, e) => {
+            // apply styles to weekends and holidays
+            let weekday = e.data.getDay(), holiday = getHoliday(e.data);
+            //
+            wijmo.toggleClass(e.item, 'date-weekend', weekday == 0 || weekday == 6);
+            wijmo.toggleClass(e.item, 'date-holiday', holiday != null);
+            e.item.title = holiday;
+        }
+    });
+    theCalendar.invalidate();
+
+    // gets the holiday for a given date
+    function getHoliday(date) {
+        let day = date.getDate(), month = date.getMonth() + 1, holiday = holidays[month + '/' + day];
+        //
+        if (!holiday) {
+            let weekDay = date.getDay(), weekNum = Math.floor((day - 1) / 7) + 1;
+            holiday = holidays[month + '/' + weekNum + '/' + weekDay];
+        }
+        //
+        return holiday;
+    }
+}
+    </script>
+</body>
+</html>

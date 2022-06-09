@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="merong" width="350px" height="300px" style="border: 3px solid #d3d3d3;">
+        Your browser does not support the Html5 canvas tag.
+    </canvas>
+    <script>
+        var chi = document.getElementById("merong");
+        var chet = chi.getContext("2d");
+        chet.beginPath();
+        chet.strokeStyle="#f00";
+        chet.lineWidth=20;
+        chet.arc(170,150,100,0,Math.PI,true);
+        chet.stroke();
+
+    </script>
+</body>
+</html>
