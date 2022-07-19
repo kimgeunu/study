@@ -1,0 +1,19 @@
+html 
+    head 
+        title 사용자 정보 보기.
+    
+    body 
+        #header 
+            h2 사용자 아이디 : #{userid}
+        hr
+        #header
+            h2 사용자 이름 : #{name}
+        hr
+        .article 
+            a(href="http://www.naver.com") 네이버로 이동 
+        hr
+        .for 
+            - for(let i=0; i<10; i++){
+                p 
+                    a(href="http://locahost:3000/#{i}") 사이트 이동#{i}
+            - }
