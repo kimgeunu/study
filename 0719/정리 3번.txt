@@ -1,1 +1,5 @@
 https://jade-lang.com 외국에서 쓰는 방식
+
+
+JSON(JavaScript Object Notation)
+데이터를 교환하고 저장하기 위해 만들어진  텍스트 기반의 데이터 교환 표준입니다
