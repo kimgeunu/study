@@ -127,6 +127,14 @@ true
 document추가
 db.컬랙션명.insert(객체);
 db.member.insert({'userid':'apple','userpw':'1111'})
+db.member.insert({'userid':'banana','userpw':'2222','username':'반하나'});
+db.member.insert({"userid":"orange","userpw":"3333","gender":"남자"});
+db.member.insert({"userid":"melon","userpw":"4444","gender":"남자", "username":"이메론"});
+db.member.insert({"userid":"cherry","userpw":"5555", "username":"채리","gender":"여자","point":2000});
+db.member.insert({"userid":"avocado","userpw":"6666", "username":"안카도","gender":"남자","point":1500});
+db.member.insert({"userid":"berry","userpw":"7777", "username":"배애리","gender":"여자","point":1800});
+db.member.insert({"userid":"coconut","userpw":"8888", "username":"고코넛","gender":"남자","point":1700});
+
 
 
 document확인
