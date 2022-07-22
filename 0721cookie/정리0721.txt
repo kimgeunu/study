@@ -24,3 +24,115 @@ req.signedCookies.cookie키 :암호화된 쿠키
 쿠키 삭제하기
 res.clearCookie('키',(path:'경로'));
 
+
+Nodemon 사용
+서버 코드를 변경할때마다 서버를 재시작하도록 하는 모듈
+
+npm i -g nodemon
+
+"scripts": {
+    "start": "nodemon 파일명.확장자"
+},
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+express-session 모듈
+express에서 세션을 관리하기 위해 사용한 미들웨어 모듈입니다.
+npm i express-session 설치
+
+cookie는 로컬에다 저장
+session은 하드웨어에다 저장
+
+app.use(session({세션모듈의 옵션}));
+ex)
+app.use(expressSession({
+    secret:'!@#$%^&*()',
+    resave:false,
+    saveUninitialized:true
+}));
+
+
+세션모듈의 옵션
+secret : 쿠키를 임의로 변조하는 것을 방지하기 위한 값
+        ->이 값을 통하여 세션을 암호화 저장합니다
+resave : 세션을 언제나 저장할지 지정하는 값
+        ->이 값을 false로 하는것을 권장하고 필요에 따라 true로 설정하기도 합니다.
+saveUninitialized: 세션이 저장되기 전에 saveUninitialized 상태로 미리 만들어서 저장 
+        초기화 되기전 것을 저장할지 여부를 설정
+
+[세션 초기 설정]
+let 세션객체명 = req.session;
+    세션객체명.변수명 = 값;
+
+ex)
+let sess = req.session;
+sess.userid = 'apple';
+
+[세션 변수 사용]
+세션객체명.변수명;
+console.log(sess.userid);
+
+[세션 삭제]
+req.session.destory(()=>{
+    세션 삭제시 처리할 문자;
+})
+
+
+
+https://db-engines.com/en/ranking
+
+
+[NoSQL]
+Not only SQL의 약자입니다
+기존의 RDBMS(관계형 데이터베이스)의 한계를 극복하기 위해 만들어진 새로운 형태의 데이터 베이스입니다.
+관계형 DB가 아니기에 RDBMS처럼 고정된 스키마 및 JOIN 문이 존재하지 않습니다.
+
+NoSQL을 사용하는 이유
+가장 큰 이유는 성능 때문입니다.
+관계형 데이터 베이스는 시스템의 신뢰도를 높이는데 필요한 장치를 많이 가지고 있습니다.
+SQL문을 읽고 실행하는데 많은 리소스를 사용하며 성능이 떨어지는 경우가 많습니다.
+반대로 NoSQL은 성능을 최우선으로 생각하며 실시간으로 처리해야 할 경우나 대용량 트래픽을 감당할 수 있는 메시징 시스템등에 활용됩니다.
+
+
+https://www.mongodb.com/
+https://www.mongodb.com/try/download/community
+
+
+
+[MongoDB 문법]
+데이터베이스 확인
+show dbs
+
+데이터베이스 생성 및 선택
+use 데이터베이스명
+use frontenddb
+* 데이터베이스가 없으면 생성, 있으면 선택합니다.
+* 데이터베이스의 자료가 없을 경우 show dbs에서 나타나지 않습니다
+
+컬렉션 생성
+db.createCollection('컬렉션명')
+db.createCollection('testCollection')
+결과
+{"ok":1}
+
+컬렉션 확인
+show collections
+
+컬렉션 삭제
+db.컬렉션명.drop();
+db.testCollection.drop();
+결과
+true
+
+document추가
+db.컬랙션명.insert(객체);
+db.member.insert({'userid':'apple','userpw':'1111'})
+
+
+document확인
+db.컬렉션명.find();
+db.컬렉션명.find().pretty();
+db.컬렉션명.find(객체).pretty();
+db.member.find();
+db.member.find().pretty();
+db.member.find('userid':'apple').pretty();
