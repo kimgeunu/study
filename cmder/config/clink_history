@@ -1,6 +1,15 @@
 |CTAG_1658478503_2225484_5656_0
 |ongo
 |d
-cd
+|d
 .cd
+|ongo
+show db
+|how dbs
+|how dbs
+show collections
+cd
+show dbs
+use
+use db
 mongo
