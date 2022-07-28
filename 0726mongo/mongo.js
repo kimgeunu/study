@@ -162,6 +162,55 @@ router.route('/member/edit').post((req,res)=>{
 })
 
 //삭제
+//http://localhost:3000/member/delete
+router.route('/member/delete').post((req,res)=>{
+    console.log('정보삭제 페이지 접속')
+    const userid = req.body.userid;
+    console.log(`userid : ${userid}`);
+    if (database) {//데이터베이스에 연결 성공시 응답내용
+        deleteMember(database, userid, (err,result)=>{
+            if (!err) {//콜백함수 연결 성공시
+                if(result.deletedCount>0){//발생
+                    res.writeHead('200',{'content-type':'text-html;charset=utf-8'});
+                    res.write('<h2>정보삭제 성공</h2>');
+                    res.write('<p>정보삭제가 성공적으로 수정되었습니다.</p>');
+                    res.end();
+                }else{//실패
+                    res.writeHead('200',{'content-type':'text-html;charset=utf-8'});
+                    res.write('<h2>정보삭제 실패</h2>');
+                    res.write('<p>정보삭제가 실패하였습니다.</p>');
+                    res.end();
+                }
+            } else {//콜백 함수 연결 실패시
+                res.writeHead('200',{'content-type':'text-html;charset=utf-8'});
+                res.write('<h2>삭제 실패</h2>');
+                res.write('<p>오류가 발생하였습니다.</p>');
+                res.end();
+            }
+        });
+    } else {//데이터 베이스에 연결 실패시 응답내용
+        res.writeHead('200',{'content-type':'text-html;charset=utf-8'});
+        res.write('<h2>데이터베이스 연결 실패</h2>');
+        res.write('<p>mongodb 데이터베이스에 연결을 실패하였습니다.</p>');
+        res.end();
+    }
+
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 //--------------------------------------------------------------------------------------------------------
 const joinMember = function(database, userid, userpw, username, age, callback){
@@ -227,6 +276,25 @@ const editMember = function(database, userid, userpw, username, age, callback){
 
 };
 
+const deleteMember = function(database, userid, callback){
+    console.log('deleteMember호출....');
+    const members = database.collection('member');//컬렉션 연결
+    members.deleteOne({userid:userid},(err,result)=>{
+        if (!err) {//삭제시 메세지를 설정 하는 조건문.
+            if (result.deletedCount>0) {
+                console.log(`사용자 document ${result.deleteCount}명 삭제됨`)
+            } else {
+                console.log(`사용자 document 삭제되지 않음`);
+            }
+            callback(null,result);
+        } else {
+            callback(err,null);
+            console.log(err);
+        }
+    });
+
+
+};
 
 app.use("/",router);
 app.listen(port,()=>{

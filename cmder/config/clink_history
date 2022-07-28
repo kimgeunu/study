@@ -12,4 +12,5 @@ cd
 show dbs
 use
 use db
+|ongo
 mongo

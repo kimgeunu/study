@@ -208,7 +208,7 @@ true
 
 document추가
 db.컬랙션명.insert(객체);
-db.member.insert({'userid':'apple','userpw':'1111'})
+db.member.insert({'userid':'apple','userpw':'1111'});
 db.member.insert({'userid':'banana','userpw':'2222','username':'반하나'});
 db.member.insert({"userid":"orange","userpw":"3333","gender":"남자"});
 db.member.insert({"userid":"melon","userpw":"4444","gender":"남자", "username":"이메론"});
@@ -310,3 +310,31 @@ db.member.find().skip(3).pretty();
 
 
 
+파일 업로드
+multer 모듈
+파일 업로드를 위한 익스프레시에 적용하는 미드웨어 입니다.
+
+server-static 모듈
+특정 폴더를 요청에 의해서 직접파일 접근할 수 있도록 기능을 제공하는 익스프레스 미들웨어.
+
+
+morgan 모듈
+로그를 관리하기 위한 별도의 라이브러리 모듈
+
+
+multer()
+생성자에 diskStorage 설정과 파일크기를 설정합니다.
+
+multer.diskStorage{
+    destination:저장될 폴더를 설정합니다
+    filename:저장될 파일이름을 설정합니다
+
+}
+multer({
+    storage:storage,//diskStorage설정객체
+    limit:{
+        file:5,//파일 전송 갯수
+        fileSize : 1024*1024*100//파일 전송 용량 1024 * 1024 *100메가
+
+    }
+})
